@@ -69,10 +69,10 @@ int main(int argc, char* argv[])
     /* fork-off a child process, and start a producer/consumer job.*/
     child_pid = fork();
     switch (child_pid){
-	case -1:	/* fork() failed */
+    case -1:	/* fork() failed */
 	    perror("fork");
         exit(1);
-    case 0:		/* child process here */
+    case 0:	/* child process here */
 	    for (i=0; i<NUM_LOOPS; i++) {
 		/*block on the semaphore, unless it's value is non-negative.*/
 		sem_op.sem_num = 0;
@@ -89,9 +89,9 @@ int main(int argc, char* argv[])
 		fflush(stdout);
 		/* increase the value of the semaphore by 1.*/
 		sem_op.sem_num = 0;
-        sem_op.sem_op = 1;
+                sem_op.sem_op = 1;
 		sem_op.sem_flg = 0;
-        semop(sem_set_id, &sem_op, 1);
+                semop(sem_set_id, &sem_op, 1);
 		/* pause execution for a little bit, to allow the */
 		/* child process to run and handle some requests. */
 		/* this is done about 25% of the time.            */
