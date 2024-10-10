@@ -121,6 +121,6 @@ $ ipcs
 
 
 
-# RESULT:
+## RESULT:
 
 The program is executed successfully.
